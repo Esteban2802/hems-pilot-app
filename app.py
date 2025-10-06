@@ -87,24 +87,14 @@ st.write("### 🌍 Variables ambientales")
 st.write("Puede cargar un archivo CSV o ingresar los datos manualmente:")
 st.write("**📁 Columnas requeridas en el CSV:**")
 st.write("""
-**Nombres EXACTOS de columnas (sin unidades):**
-
-✅ **CORRECTO:**  
-`Temperatura seca`  
-`Temperatura de bulbo humedo`  
-`Temperatura de globo`  
-`Velocidad del aire`  
-`Humedad relativa`
-
-❌ **INCORRECTO:**  
-`Temperatura seca (°C)`  
-`Temperatura de bulbo humedo (ºC)`  
-`Temperatura de globo en °C`  
-`Velocidad del aire (m/s)`  
-`Humedad relativa (%)`
-
-**Las unidades se especifican aquí para su referencia, pero NO van en el nombre de la columna.**
-""")
+**Para mayor facilidad, puede COPIAR Y PEGAR estos nombres exactos en su archivo CSV:**
+Temperatura seca (°C)
+Temperatura de bulbo humedo (°C)
+Temperatura de globo (°C)
+Velocidad del aire (m/s)
+Humedad relativa (%)
+"""
+)
 # 1. File uploader simple
 archivo = st.file_uploader("Sube tu archivo CSV con datos ambientales", type=["csv"], 
                           help="El archivo debe contener columnas: 'Temperatura seca', 'Temperatura de globo', 'etc' ")
@@ -128,11 +118,11 @@ if archivo is not None:
         
         # Diccionario para mapear columnas con valores por defecto
         columnas_map = {
-            "Temperatura seca": ("temp_aire", 32.00),
-            "Temperatura de globo": ("temp_globo", 36.00), 
-            "Temperatura de bulbo humedo": ("temp_bulbo", 28.00),
-            "Velocidad del aire": ("velocidad_aire", 0.016),
-            "Humedad relativa": ("humedad_relativa", 50.00)
+            "Temperatura seca (°C)": ("temp_aire", 32.00),
+            "Temperatura de globo (°C)": ("temp_globo", 36.00), 
+            "Temperatura de bulbo humedo (°C)": ("temp_bulbo", 28.00),
+            "Velocidad del aire (m/s)": ("velocidad_aire", 0.016),
+            "Humedad relativa (%)": ("humedad_relativa", 50.00)
         }
         
         # Procesar cada columna de forma SEGURA
@@ -648,5 +638,6 @@ if estado== "Discomfort":
     else: 
         st.write("No se cuenta con una metodologia para evaluar discomfort en exteriores")
         
+
 
 
