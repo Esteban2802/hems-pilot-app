@@ -104,7 +104,7 @@ st.write("""
 `Humedad relativa (%)`
 
 **Las unidades se especifican aquí para su referencia, pero NO van en el nombre de la columna.**
-"""
+""")
 # 1. File uploader simple
 archivo = st.file_uploader("Sube tu archivo CSV con datos ambientales", type=["csv"], 
                           help="El archivo debe contener columnas: 'Temperatura seca', 'Temperatura de globo', 'etc' ")
@@ -648,4 +648,5 @@ if estado== "Discomfort":
     else: 
         st.write("No se cuenta con una metodologia para evaluar discomfort en exteriores")
         
+
 
