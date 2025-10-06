@@ -85,14 +85,33 @@ st.write("## 📥 Datos de entrada")
 
 st.write("### 🌍 Variables ambientales")
 st.write("Puede cargar un archivo CSV o ingresar los datos manualmente:")
+st.write("**📁 Columnas requeridas en el CSV:**")
+st.write("""
+**Nombres EXACTOS de columnas (sin unidades):**
 
+✅ **CORRECTO:**  
+`Temperatura seca`  
+`Temperatura de bulbo humedo`  
+`Temperatura de globo`  
+`Velocidad del aire`  
+`Humedad relativa`
+
+❌ **INCORRECTO:**  
+`Temperatura seca (°C)`  
+`Temperatura de bulbo humedo (ºC)`  
+`Temperatura de globo en °C`  
+`Velocidad del aire (m/s)`  
+`Humedad relativa (%)`
+
+**Las unidades se especifican aquí para su referencia, pero NO van en el nombre de la columna.**
+"""
 # 1. File uploader simple
 archivo = st.file_uploader("Sube tu archivo CSV con datos ambientales", type=["csv"], 
-                          help="El archivo debe contener columnas: 'Temperatura seca', 'Temperatura de globo', etc.")
+                          help="El archivo debe contener columnas: 'Temperatura seca', 'Temperatura de globo', 'etc' ")
 
 # Valores por defecto
 temp_aire, temp_globo, temp_bulbo = 32.00, 36.00, 28.00
-velocidad_aire, presion_aire, humedad_relativa = 0.016, 101.3, 50.00
+velocidad_aire, humedad_relativa = 0.016, 50.00
 
 # 2. Procesar archivo si existe
 # REEMPLAZAR todo el bloque de procesamiento de archivos con esto:
@@ -113,7 +132,6 @@ if archivo is not None:
             "Temperatura de globo": ("temp_globo", 36.00), 
             "Temperatura de bulbo humedo": ("temp_bulbo", 28.00),
             "Velocidad del aire": ("velocidad_aire", 0.016),
-            "Presión atmosférica": ("presion_aire", 101.3),
             "Humedad relativa": ("humedad_relativa", 50.00)
         }
         
@@ -193,7 +211,7 @@ with col1:
 with col2:
     temp_bulbo = st.number_input("Temperatura de bulbo húmedo (°C)", min_value=15.00, max_value=60.00, value=float(temp_bulbo))
     velocidad_aire = st.number_input("Velocidad del aire (m/s)", min_value=0.000, max_value=10.00, value=float(velocidad_aire))
-    presion_aire = st.number_input("Presión atmosférica (kPa)", min_value=80.00, max_value=120.00, value=float(presion_aire))
+    
         
         
 #Caracteristicas de la tarea
@@ -630,3 +648,4 @@ if estado== "Discomfort":
     else: 
         st.write("No se cuenta con una metodologia para evaluar discomfort en exteriores")
         
+
