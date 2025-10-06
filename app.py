@@ -88,11 +88,12 @@ st.write("Puede cargar un archivo CSV o ingresar los datos manualmente:")
 st.write("**📁 Columnas requeridas en el CSV:**")
 st.write("""
 **Para mayor facilidad, puede COPIAR Y PEGAR estos nombres exactos en su archivo CSV:**
-Temperatura seca (°C)
-Temperatura de bulbo humedo (°C)
-Temperatura de globo (°C)
-Velocidad del aire (m/s)
-Humedad relativa (%)
+
+-Temperatura seca (°C)
+-Temperatura de bulbo humedo (°C)
+-Temperatura de globo (°C)
+-Velocidad del aire (m/s)
+-Humedad relativa (%)
 """
 )
 # 1. File uploader simple
@@ -638,6 +639,7 @@ if estado== "Discomfort":
     else: 
         st.write("No se cuenta con una metodologia para evaluar discomfort en exteriores")
         
+
 
 
 
