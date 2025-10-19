@@ -243,7 +243,7 @@ st.write("## 📊 Resultados de Evaluación")
 #Llamar a la función indice de calor
 st.write("### 📈 Resultados Índice de Calor")
 
-heat_index,nivel,efecto,medidas_de_salud=indice_de_calor(temp_aire,humedad_relativa)
+heat_index,nivel,efecto,medidas_de_salud,nivel_para_medidas=indice_de_calor(temp_aire,humedad_relativa,radiacion_solar)
 
 #Graficar el indice de calor 
 
@@ -328,8 +328,10 @@ st.info(efecto)
 
 #Medidas de prevención y protección
 st.subheader("🛡️ Medidas de Prevención y Protección")
-with st.expander(f"📋 Ver medidas de prevención para {nivel}", expanded=False):
-    st.write(f"**Medidas específicas para {nivel}:**")
+if radiacion_solar == "Si":
+    st.write("Según el reglamento nacional, cuando existe exposición al sol se deben tomar las medidas correspondientes al siguiente nivel excepto para el Nivel IV.")
+with st.expander(f"📋 Ver medidas de prevención para {nivel_para_medidas}", expanded=False):
+    st.write(f"**Medidas específicas para {nivel_para_medidas}:**")
     
     # Listar todas las medidas de la lista medidas_de_salud
     for i, medida in enumerate(medidas_de_salud, 1):
@@ -635,6 +637,7 @@ if estado== "Discomfort":
     else: 
         st.write("No se cuenta con una metodologia para evaluar discomfort en exteriores")
         
+
 
 
 
