@@ -67,7 +67,7 @@ def indice_de_calor(temp_aire, humedad_relativa,exposicion_solar):
     if ih <91:
         nivel="Nivel I"
         efecto= "Es posible que tenga fatiga con exposiciones prolongadas y actividad física."
-        if exposicion_solar == "Sí":
+        if exposicion_solar == "Si":
             nivel_para_medidas="Nivel II"
             medidas_por_nivel = medidas[nivel_para_medidas]
         else:
@@ -77,7 +77,7 @@ def indice_de_calor(temp_aire, humedad_relativa,exposicion_solar):
     elif 91<= ih <103:
         nivel="Nivel II"
         efecto="Posible insolación, calambres y agotamiento por exposición prolongada y actividad física"
-        if exposicion_solar == "Sí":
+        if exposicion_solar == "Si":
             nivel_para_medidas="Nivel III"
             medidas_por_nivel = medidas[nivel_para_medidas]
         else:
@@ -87,7 +87,7 @@ def indice_de_calor(temp_aire, humedad_relativa,exposicion_solar):
     elif 103<= ih <125:
         nivel="Nivel III"
         efecto= "Probable insolación, calambres y agotamiento por exposición prolongada y actividad física"
-        if exposicion_solar == "Sí":
+        if exposicion_solar == "Si":
             nivel_para_medidas="Nivel IV"
             medidas_por_nivel = medidas[nivel_para_medidas]
         else:
@@ -314,3 +314,4 @@ def sanitize_file(uploaded_file):
     sanitized_df = df.applymap(lambda x: f"'{x}" if isinstance(x, str) and x.startswith(('=', '@', '+', '-')) else x)
 
     return sanitized_df
+
